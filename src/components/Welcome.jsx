@@ -1,15 +1,33 @@
-/* eslint-disable react/no-unescaped-entities */
-import Alert from 'react-bootstrap/Alert';
+import { useState } from "react";
+import { Button, Modal } from "react-bootstrap";
 
-const Welcome = () => {
+function Welcome() {
+  const [showModal, setShowModal] = useState(true);
+
+  const handleClose = () => setShowModal(false);
+
   return (
-    <div className="welcome-container d-flex justify-content-center align-items-center bg-white">
-      <Alert variant="white" className="text-center">
-        <h1>Welcome to Giuseppe's Shop!</h1>
-        <p>Get your favorite books here!</p>
-      </Alert>
+    <div>
+      <Modal
+        show={showModal}
+        onHide={handleClose}
+        dialogClassName="no-border-modal"
+        className="no-border-modal"
+      >
+        <Modal.Dialog>
+          <Modal.Header closeButton>
+            <Modal.Title>Welcome to Our Book Shop!</Modal.Title>
+          </Modal.Header>
+
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal.Dialog>
+      </Modal>
     </div>
   );
-};
+}
 
 export default Welcome;
