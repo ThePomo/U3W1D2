@@ -11,8 +11,7 @@ function Welcome() {
       <Modal
         show={showModal}
         onHide={handleClose}
-        dialogClassName="no-border-modal"
-        className="no-border-modal"
+        
       >
         <Modal.Dialog>
           <Modal.Header closeButton>
